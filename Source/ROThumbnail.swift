@@ -54,8 +54,11 @@ open class ROThumbnail {
         // Don't perform compression if image quality is set to 100%
         if imageQuality < 1 {
             // Image quality of the thumbnail is defined in the imageQuality variable, can be setted from outside
-            let jpeg:Data = UIImageJPEGRepresentation(thumbnail, imageQuality)!
-            thumbnail = UIImage(data: jpeg)!
+            if let jpeg = UIImageJPEGRepresentation(thumbnail, imageQuality) {
+                if let compressedImage = UIImage(data: jpeg) {
+                    thumbnail = compressedImage
+                }
+            }
         }
         
         
