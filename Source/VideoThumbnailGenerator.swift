@@ -9,20 +9,21 @@
 import UIKit
 import AVFoundation
 
-class VideoThumbnailGenerator : ROThumbnailGenerator {
+class VideoThumbnailGenerator: ROThumbnailGenerator {
 
-  var supportedExtensions:Array<String> = ["mov", "m4a", "mp4"]
+  var supportedExtensions: [String] = ["mov", "m4a", "mp4"]
 
-  func getThumbnail(_ url: URL) -> UIImage {
-    let asset:AVAsset = AVAsset(url:url)
+  func getThumbnail(_ url: URL) -> UIImage? {
+    let asset: AVAsset = AVAsset(url: url)
 
     // Fetch the duration of the video
     let durationSeconds = CMTimeGetSeconds(asset.duration)
-    let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
+    let assetImgGenerate: AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
 
     assetImgGenerate.appliesPreferredTrackTransform = true
 
-    // Jump to the third (1/3) of the video and fetch the thumbnail from there (600 is the timescale and is a multiplier of 24fps, 25fps, 30fps..)
+    // Jump to the third (1/3) of the video and then
+    // fetch the thumbnail from there (600 is the timescale and is a multiplier of 24fps, 25fps, 30fps..)
     let time: CMTime = CMTimeMakeWithSeconds(durationSeconds/3.0, preferredTimescale: 600)
     var img: CGImage
     do {
@@ -32,7 +33,7 @@ class VideoThumbnailGenerator : ROThumbnailGenerator {
       return frameImg
     } catch let error as NSError {
       print("ERROR: \(error)")
-      return UIImage(named:"fallbackIcon")!
+      return nil
     }
   }
 }
