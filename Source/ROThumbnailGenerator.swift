@@ -13,9 +13,9 @@ import UIKit
     You can easily add yourself to the ROThumbnail class
  */
 public protocol ROThumbnailGenerator {
-    
+
     // Define the exensions which are supported by this thumbnail generator implementation
-    var supportedExtensions:Array<String> { get }
+    var supportedExtensions: [String] { get }
 
     /**
         Create a UIImage thumbnail from the given URL
@@ -24,5 +24,5 @@ public protocol ROThumbnailGenerator {
     
         - returns: thumbnail The created thumbnail image.
       */
-    func getThumbnail(_ url:URL) -> UIImage;
+    func getThumbnail(_ url: URL) -> UIImage?
 }

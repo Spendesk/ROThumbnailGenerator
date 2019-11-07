@@ -8,11 +8,11 @@
 
 import UIKit
 
-class DefaultThumbnailGenerator : ROThumbnailGenerator {
-    
-    var supportedExtensions:Array<String> = []
-    
-    func getThumbnail(_ url: URL) -> UIImage {
-        return UIImage(named:"fallbackIcon")!
+class DefaultThumbnailGenerator: ROThumbnailGenerator {
+
+    var supportedExtensions: [String] = []
+
+    func getThumbnail(_ url: URL) -> UIImage? {
+        return nil
     }
 }

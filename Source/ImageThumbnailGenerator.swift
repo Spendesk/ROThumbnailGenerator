@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ImageThumbnailGenerator : ROThumbnailGenerator {
-    
-    var supportedExtensions:Array<String> = ["png", "jpg", "jpeg"]
+class ImageThumbnailGenerator: ROThumbnailGenerator {
 
-    func getThumbnail(_ url:URL) -> UIImage {
-        return UIImage(data: try! Data(contentsOf: url)) ?? UIImage(named: "Piktogramm_IMAGE")!
+    var supportedExtensions = ["png", "jpg", "jpeg"]
+
+    func getThumbnail(_ url: URL) -> UIImage? {
+      guard let data = try? Data(contentsOf: url) else {
+        return nil
+      }
+      return UIImage(data: data)
     }
 }
