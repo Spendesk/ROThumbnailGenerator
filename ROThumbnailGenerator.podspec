@@ -13,10 +13,10 @@ Pod::Spec.new do |spec|
     spec.name         = 'ROThumbnailGenerator'
     spec.version      = '2.3.0'
     spec.license      = { :type => 'MIT' }
-    spec.homepage     = 'https://github.com/valpertui/ROThumbnailGenerator'
+    spec.homepage     = 'https://github.com/Spendesk/ROThumbnailGenerator'
     spec.authors      = { 'Robin Oster' => 'prine.dev@gmail.com', 'Valentin Pertuisot' => 'valentin.pertuisot+github@gmail.com' }
     spec.summary      = 'Creates thumbnails of different file types very easily'
-    spec.source       = { :git => 'https://github.com/Valpertui/ROThumbnailGenerator.git', :tag => "2.3.0" }
+    spec.source       = { :git => 'https://github.com/Spendesk/ROThumbnailGenerator.git', :tag => "2.3.0" }
     spec.source_files = 'Source/**/*'
     spec.framework    = 'SystemConfiguration'
     spec.ios.deployment_target  = '8.4'
